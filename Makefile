@@ -5,55 +5,38 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/10/21 07:33:21 by vdzhanaz          #+#    #+#              #
-#    Updated: 2018/11/21 17:19:40 by vdzhanaz         ###   ########.fr        #
+#    Created: 2018/09/23 21:22:13 by akupriia          #+#    #+#              #
+#    Updated: 2018/11/24 17:15:37 by vdzhanaz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all clean fclean re mclean mfclean mre test
+.PHONY: all clean fclean re mre
 
-NAME		:=	push_swap
+CH := checker
+PS := push_swap
 
-SRC_PATH	:=	src/
-INC_PATH	:=	includes/
-LIB_PATH	:=	ft_printf/
-LIB			:=	$(LIB_PATH)libftprintf.a
-OBJ_PATH	:=	.obj/
-
-CC			:=	clang
-CFLAGS		:=	-g -Wall -Werror -Wextra
-IFLAGS		:=	-I $(INC_PATH) -I $(LIB_PATH)
-LFLAGS		:=	-lftprintf -L $(LIB_PATH)
-
-HFILES		:=	push_swap
-FILES		:=	push_swap
-
-HDRS := $(addprefix $(INC_PATH), $(addsuffix .h, $(HFILES)))
-SRCS := $(addprefix $(SRC_PATH), $(addsuffix .c, $(FILES)))
-OBJS := $(addprefix $(OBJ_PATH), $(SRCS:%.c=%.o))
+CH_PATH :=	src/checker/
+PS_PATH :=	src/push_swap/
 
 
-all: $(NAME)
+all:
+	@ make -C $(CH_PATH)
+	@ make -C $(PS_PATH)
+	@ ln -fs $(CH_PATH)$(CH) $(CH)
+	@ ln -fs $(PS_PATH)$(PS) $(PS)
+	@ chmod 744 $(CH) $(PS)
 
-$(NAME): $(LIB) $(OBJ_PATH) $(OBJS)
-	$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) $(OBJS) -o $(NAME)
-$(LIB):
-	make -C $(LIB_PATH)
-
-$(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)$(SRC_PATH)
-$(OBJ_PATH)%.o: %.c $(HDRS)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
-
-clean: mclean
-	make clean -C $(LIB_PATH)
-fclean: mfclean
-	make fclean -C $(LIB_PATH)
+mre:
+	@ make mre -C $(CH_PATH)
+	@ make mre -C $(PS_PATH)
+	@ ln -fs $(CH_PATH)$(CH) $(CH)
+	@ ln -fs $(PS_PATH)$(PS) $(PS)
+	@ chmod 744 $(CH) $(PS)
+clean:
+	make clean -C $(CH_PATH)
+	make clean -C $(PS_PATH)
+fclean:
+	make fclean -C $(CH_PATH)
+	make fclean -C $(PS_PATH)
+	rm -f $(CH) $(PS)
 re: fclean all
-
-mclean:
-	rm -f $(OBJS) $(DEPS)
-mfclean:
-	rm -f $(NAME)
-	rm -rf $(OBJ_PATH)
-mre: mfclean all

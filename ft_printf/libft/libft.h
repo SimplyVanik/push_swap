@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vdzhanaz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 22:05:58 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2017/11/06 22:21:31 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/24 17:39:30 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 
 # define MAX 9223372036854775807
+# define BUFF_SIZE 4096
 
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
@@ -93,5 +94,7 @@ t_list				*ft_lstrev(t_list *lst);
 int					ft_strnequwr(char const *s1, char const *s2, size_t n);
 char				*ft_strtrimu(char const *s, char c);
 void				ft_masdel(char ***s);
+int					get_next_line(const int fd, char **line);
+
 
 #endif

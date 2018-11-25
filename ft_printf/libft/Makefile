@@ -77,6 +77,7 @@ SRC = ft_memcpy.c \
 		ft_strnequwr.c \
 		ft_strtrimu.c \
 		ft_masdel.c \
+		get_next_line.c
 
 HEADER = libft.h
 
