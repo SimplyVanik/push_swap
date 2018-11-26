@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/24 22:02:35 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/26 17:56:14 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	ft_check(char *s, int par, t_head *head, int j)
 			count = count * 10;
 		}
 		res = (i == 0 && tmp[j][i] == '-') ? -1 * res : res;
-		((res > 2147483647 || res < -2147483648) &&
-		ft_printf("Error. %d element isn't integer", par + j)) ? exit(1) : 0;
-		(i > -1 && !(i == 0 && tmp[j][i] == '-') &&
-		ft_printf("Error. %d element isn't digital value", par)) ? exit(1) : 0;
+		(((res > 2147483647 || res < -2147483648) &&
+		ft_printf("Error. %d element isn't integer\n", par + j)) || (i > -1 &&
+		!((ft_strlen(tmp[j]) > 1) && i == 0 && (tmp[j][i] == '-' || tmp[j][i] ==
+		'+')) && ft_printf("Error. %d isn't digital \n", par))) ? exit(1) : 0;
 		head->a = ft_addelement((int)(res), head->a, par + j);
 	}
 	ft_masdel(&tmp);
@@ -121,7 +121,7 @@ t_stack	*ft_addelement(int to_add, t_stack *head, int par)
 	while (tmp->next != head && tmp->value != to_add)
 		tmp = tmp->next;
 	if (tmp->value == to_add &&
-	ft_printf("Error. %d element is duplicated", par))
+	ft_printf("Error. %d element is duplicated\n", par))
 		exit(1);
 	tmp->next = ft_memalloc(sizeof(t_stack));
 	(tmp->next)->prev = tmp;

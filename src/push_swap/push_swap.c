@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/26 16:42:07 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/26 17:46:45 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int		main(int ac, char **av)
 	ft_bzero((void *)(&head), sizeof(t_head));
 	head.lst = ft_memalloc(sizeof(t_lists));
 	head.lst->com = ft_strdup("start");
-	if (ac == 1 && (ft_printf("Error. No elements to sort.")))
+	if (ac == 1 && (ft_printf("Error. No elements to sort.\n")))
 		exit(1);
 	while (--ac > 0)
 		ft_check(av[ac], ac, &head, ac);
@@ -141,7 +141,7 @@ int		main(int ac, char **av)
 		ft_swap(head.a, 'a', head.lst);
 	else if (ac > 3)
 		ft_sort(&head, ac);
-	else
+	else if (ac == 3)
 		ft_a_bot_3(&head, 3, 1);
 	tmp = head.lst->next;
 	ft_optimize(tmp);

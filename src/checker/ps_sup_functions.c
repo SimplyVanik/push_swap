@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/24 22:02:34 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/26 17:56:12 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	ft_check(char *s, int par, t_head *head, int j)
 			count = count * 10;
 		}
 		res = (i == 0 && tmp[j][i] == '-') ? -1 * res : res;
-		((res > 2147483647 || res < -2147483648) &&
-		ft_printf("Error. %d element isn't integer", par + j)) ? exit(1) : 0;
-		(i > -1 && !(i == 0 && tmp[j][i] == '-') &&
-		ft_printf("Error. %d element isn't digital value", par)) ? exit(1) : 0;
+		(((res > 2147483647 || res < -2147483648) &&
+		ft_printf("Error. %d element isn't integer\n", par + j)) || (i > -1 &&
+		!((ft_strlen(tmp[j]) > 1) && i == 0 && (tmp[j][i] == '-' || tmp[j][i] ==
+		'+')) && ft_printf("Error. %d isn't digital \n", par))) ? exit(1) : 0;
 		head->a = ft_addelement((int)(res), head->a, par + j);
 	}
 	ft_masdel(&tmp);
