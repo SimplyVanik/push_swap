@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/23 22:24:03 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/26 13:37:41 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,17 @@ void	ft_b_bottom_3(t_head *head, int num)
 	ft_sort_b_bottom(head, 3);
 }
 
-void	ft_a_bot_3(t_head *head, int num_a)
+void	ft_a_bot_3(t_head *head, int num_a, int fl)
 {
+	if (fl)
+	{
+		if (head->a->value > head->a->next->value && head->a->value >
+		head->a->next->next->value)
+			head->a = ft_rotating(head->a, 'a', 0, head->lst);
+		if (head->a->next->value > head->a->value && head->a->next->value >
+		head->a->next->next->value)
+			head->a = ft_rotating(head->a, 'a', 1, head->lst);
+	}
 	if (head->a->value > head->a->next->value)
 		ft_swap(head->a, 'a', head->lst);
 	if (head->a->next->value > head->a->next->next->value)

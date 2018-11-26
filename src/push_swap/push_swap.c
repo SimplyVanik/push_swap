@@ -6,11 +6,40 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/24 22:17:18 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/26 16:42:07 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		ft_some_sort(t_head *head, int i)
+{
+	if (!(head->a->value < head->a->next->value && head->a->next->value <
+	head->a->next->next->value && head->a->value < head->a->next->next->value)
+	&& head->a->value < head->a->next->next->next->value && head->a->next->value
+	< head->a->next->next->next->value && head->a->next->next->value
+	< head->a->next->next->next->value)
+	{
+		i = i - 3;
+		head->a = head->a->next->next->next;
+	}
+	while (--i > 0 && head->a->value < head->a->next->value)
+		head->a = head->a->next;
+	if (i == 1)
+		head->a = head->a->next->next;
+	else if (i == 0)
+		head->a = head->a->next;
+	else
+		while (i-- > -1)
+			head->a = head->a->next;
+	(i < 2) ? ft_a_bot_3(head, 3, 0) : 0;
+	(i == 1) ? head->a = ft_rotating(head->a, 'a', 1, head->lst) : 0;
+	(i == 1) ? head->a = ft_rotating(head->a, 'a', 1, head->lst) : 0;
+	(i == 1) ? ft_swap(head->a, 'a', head->lst) : 0;
+	(i == 1) ? head->a = ft_rotating(head->a, 'a', 0, head->lst) : 0;
+	(i == 1) ? head->a = ft_rotating(head->a, 'a', 0, head->lst) : 0;
+	return (i);
+}
 
 void	ft_sort_b(t_head *head, int *blocks, int j, int piv)
 {
@@ -79,6 +108,9 @@ void	ft_sort(t_head *head, int i)
 	blocks = ft_memalloc(4 * i);
 	tmp = ft_memalloc(4 * i);
 	blocks[0] = i;
+	i = ft_some_sort(head, i);
+	if (i >= 0)
+		return ;
 	i = 0;
 	ft_sort_a(head, blocks, fl);
 	while (blocks[i] != 0)
@@ -110,7 +142,7 @@ int		main(int ac, char **av)
 	else if (ac > 3)
 		ft_sort(&head, ac);
 	else
-		ft_a_bot_3(&head, 3);
+		ft_a_bot_3(&head, 3, 1);
 	tmp = head.lst->next;
 	ft_optimize(tmp);
 	while (tmp)

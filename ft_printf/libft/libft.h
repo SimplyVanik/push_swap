@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 22:05:58 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/24 17:39:30 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/25 21:52:05 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,5 @@ int					ft_strnequwr(char const *s1, char const *s2, size_t n);
 char				*ft_strtrimu(char const *s, char c);
 void				ft_masdel(char ***s);
 int					get_next_line(const int fd, char **line);
-
 
 #endif

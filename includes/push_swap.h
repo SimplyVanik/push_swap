@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 21:33:55 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/25 20:50:24 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/26 16:27:37 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void				ft_sort_b_bottom(t_head *head, int num);
 void				ft_sort_b_top(t_head *head, int num);
 void				ft_ab_top(t_head *head, int num_a);
 void				ft_b_bottom_3(t_head *head, int num);
-void				ft_a_bot_3(t_head *head, int num_a);
+void				ft_a_bot_3(t_head *head, int num_a, int fl);
 void				ft_omg_sort(t_head *head, int num_a, int num_b, int b_size);
 void				ft_make_sort(t_head *head, int num_a, int num_b);
 void				ft_make_b(t_head *head, int *blocks, int i, int j);
@@ -76,5 +76,6 @@ void				ft_debug(t_head *head);
 void				ft_debug_a(t_stack *head, char *com, int i);
 void				ft_debug_b(t_stack *head, char *com, int i);
 void				ft_sort_stack(t_head *head, char fl);
+int					ft_some_sort(t_head *head, int i);
 
 #endif

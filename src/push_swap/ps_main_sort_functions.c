@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/24 21:54:10 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/26 13:37:36 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_omg_sort(t_head *head, int num_a, int num_b, int b_size)
 {
 	int		pshs;
 
-	(num_a == 3 || num_a == 0) ? ft_a_bot_3(head, num_a) : 0;
+	(num_a == 3 || num_a == 0) ? ft_a_bot_3(head, num_a, 0) : 0;
 	num_b = (b_size == 4 && num_b < 0) ? -1 * num_b : num_b;
 	num_a = ft_find_pivot(head->b, num_b);
 	pshs = 0;
