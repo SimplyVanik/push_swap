@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/26 17:46:58 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/27 21:57:28 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ void	ft_sort_stack(t_head *head, char fl)
 	i = ft_get_stack_size(head->a);
 	while (--i > 0)
 	{
-		if (head->a->value > head->a->next->value && (ft_printf("KO\n")))
+		if ((head->b != NULL || head->a->value > head->a->next->value) &&
+		(ft_printf("KO\n")))
 			return ;
 		head->a = head->a->next;
 	}

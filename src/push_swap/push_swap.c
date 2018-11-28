@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/26 17:46:45 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/27 21:57:25 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,9 @@ void	ft_sort(t_head *head, int i)
 	blocks = ft_memalloc(4 * i);
 	tmp = ft_memalloc(4 * i);
 	blocks[0] = i;
-	i = ft_some_sort(head, i);
-	if (i >= 0)
+	if (i > 5)
+		i = ft_some_sort(head, i);
+	if (blocks[0] > 5 && i >= 0)
 		return ;
 	i = 0;
 	ft_sort_a(head, blocks, fl);

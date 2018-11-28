@@ -6,7 +6,7 @@
 /*   By: vdzhanaz <vdzhanaz@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 16:10:26 by vdzhanaz          #+#    #+#             */
-/*   Updated: 2018/11/26 17:56:14 by vdzhanaz         ###   ########.fr       */
+/*   Updated: 2018/11/27 21:57:23 by vdzhanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	ft_check(char *s, int par, t_head *head, int j)
 	char	**tmp;
 
 	tmp = ft_strsplit(s, ' ');
-	j = -1;
-	while (tmp[++j] != NULL)
+	j = 0;
+	while (tmp[j] != NULL)
+		j++;
+	while (--j >= 0)
 	{
 		i = ft_strlen(tmp[j]);
 		res = 0;
